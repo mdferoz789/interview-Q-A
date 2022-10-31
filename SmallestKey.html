@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>find smallest key from an obj</h3>
+    <h4>const obj={a:12,b:24,c:36};</h4>
+    <p id="ans">answer will be here</p>
+    <script>
+      const obj = { a: 12, b: 24, c: 36 };
+      console.log(obj);
+      // get object keys array
+      var keys = Object.keys(obj),
+        // set initial value as first elemnt in array
+        res = keys[0];
+
+      // iterate over array elements
+      keys.forEach(function (v) {
+        // compare with current property value and update with the min value property
+        res = +obj[res] > +obj[v] ? v : res;
+      });
+
+      console.log(res);
+      document.getElementById("ans").innerHTML =
+        "the smallest  elements Key is :" + res;
+    </script>
+    <script>
+      var myobj = {
+        1632: 45,
+        1856: 12,
+        1848: 56,
+        1548: 34,
+        1843: 88,
+        1451: 55,
+        4518: 98,
+        1818: 23,
+        3458: 45,
+        1332: 634,
+        4434: 33,
+      };    
+
+      var minimum = Object.keys(myobj)
+        .map(function (key) {
+          return {
+            key: key,
+            value: myobj[key],
+          };
+        })
+        .sort(function (a, b) {
+          return a.value - b.value;
+        })[0];
+
+      console.log(minimum);
+      console.log(minimum.key);
+      console.log(minimum.value);
+    </script>
+  </body>
+</html>
